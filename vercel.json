@@ -1,4 +1,6 @@
 {
+  "rootDirectory": "client",
+  "outputDirectory": "dist",
   "rewrites": [
     {
       "source": "/api/(.*)",

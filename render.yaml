@@ -1,0 +1,27 @@
+services:
+  - type: web
+    name: royal-shambella-crm
+    env: node
+    plan: starter
+    buildCommand: pnpm install && pnpm build
+    startCommand: pnpm start
+    autoDeploy: true
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 3000
+      - key: ODOO_URL
+        sync: false
+      - key: ODOO_DATABASE
+        sync: false
+      - key: ODOO_USERNAME
+        sync: false
+      - key: ODOO_PASSWORD
+        sync: false
+      - key: ODOO_TEAM_NAME
+        sync: false
+      - key: ODOO_LEAD_TYPE
+        value: opportunity
+      - key: ODOO_USER_NAME
+        sync: false

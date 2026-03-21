@@ -101,9 +101,12 @@ export default function Home() {
     }
 
     return opportunities.filter((o) => {
-      const createdAt = safeDate(o.createdAt);
-      if (!createdAt) return false;
-      return isWithinInterval(createdAt, { start: rangeStart!, end: rangeEnd! });
+      const dateValue =
+        selectedPeriod === 'today'
+          ? safeDate(o.syncedAt || o.updatedAt || o.createdAt)
+          : safeDate(o.createdAt);
+      if (!dateValue) return false;
+      return isWithinInterval(dateValue, { start: rangeStart!, end: rangeEnd! });
     });
   }, [customRange.end, customRange.start, opportunities, now, selectedPeriod]);
 

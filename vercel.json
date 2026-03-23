@@ -5,7 +5,7 @@
   "rewrites": [
     {
       "source": "/api/(.*)",
-      "destination": "https://royal-shambella-crm.onrender.com/api/$1"
+      "destination": "https://techkhit.onrender.com/api/$1"
     },
     {
       "source": "/(.*)",

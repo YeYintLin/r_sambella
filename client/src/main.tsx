@@ -53,10 +53,16 @@ queryClient.getMutationCache().subscribe(event => {
   }
 });
 
+const apiBase = (() => {
+  const raw = (import.meta.env.VITE_API_BASE_URL as string | undefined) ?? "";
+  const trimmed = raw.trim().replace(/\/+$/, "");
+  return trimmed.length > 0 ? trimmed : "/api";
+})();
+
 const trpcClient = trpc.createClient({
   links: [
     httpBatchLink({
-      url: "/api/trpc",
+      url: `${apiBase}/trpc`,
       transformer: superjson,
       fetch(input, init) {
         return globalThis.fetch(input, {

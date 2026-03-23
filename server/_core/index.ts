@@ -45,6 +45,7 @@ async function startServer() {
     createExpressMiddleware({
       router: appRouter,
       createContext,
+      allowMethodOverride: true,
     })
   );
   // Use Vite for any non-production env to avoid missing static assets in dev.

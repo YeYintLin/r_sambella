@@ -539,6 +539,7 @@ export default function Home() {
                           border: '1px solid var(--border)',
                           borderRadius: '0.75rem',
                           boxShadow: '0 4px 12px rgba(0, 0, 0, 0.3)',
+                          color: 'var(--foreground)',
                         }}
                         labelStyle={{ color: 'var(--foreground)' }}
                       />

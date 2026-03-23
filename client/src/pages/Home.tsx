@@ -101,10 +101,7 @@ export default function Home() {
     }
 
     return opportunities.filter((o) => {
-      const dateValue =
-        selectedPeriod === 'today'
-          ? safeDate(o.syncedAt || o.updatedAt || o.createdAt)
-          : safeDate(o.createdAt);
+      const dateValue = safeDate(o.syncedAt || o.updatedAt || o.createdAt);
       if (!dateValue) return false;
       return isWithinInterval(dateValue, { start: rangeStart!, end: rangeEnd! });
     });
